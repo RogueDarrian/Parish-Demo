@@ -1,0 +1,1498 @@
+                                                                        /*shared CSS*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 px;
+}
+
+/* Scroll to Top Button */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #e64a19;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+                                                                            /* HOME PAGE!*/
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('headimage.jpg') no-repeat;
+    background-position: center -200px;
+    background-size: cover;
+    min-height: 400px;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2px;
+    gap: 200px;
+    
+}
+
+.logo {
+    text-align: left;
+    width: 100%;
+    padding-left: 40px;
+}
+
+.logo h1 {
+    font-size: 3.3rem;
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 75px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 35px;
+    background-color: #2c2a2a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-menu a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #90EE90;
+}
+
+/* Dropdown styles for nav menu */
+.nav-menu li {
+    position: relative;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.dropdown-menu {
+    display: none; /* shown on hover/focus or when JS toggles .open */
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #ffffff;
+    color: #333;
+    min-width: 180px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    padding: 6px 0;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background: #f5f5f5;
+    color: #90EE90;
+}
+
+/* show dropdown on hover (desktop) or when open class set by JS */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu,
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+/* mobile: make dropdown content flow within nav (stacked) */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        min-width: 0;
+    }
+    .dropdown-menu a {
+        padding: 8px 0;
+        color: white;
+    }
+}
+
+/* Cards Section */
+.cards-section {
+    padding: 80px 0;
+    background-color: #2c2a2a;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    padding: 40px 30px;
+    text-align: center;
+    color: #333;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px; /* Ensure consistent card heights */
+    justify-content: flex-start; /* Align content from top */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-blue {
+    background-color: #6ac7ec;
+}
+
+.card-orange {
+    background-color: #f78b3e;
+}
+
+.card-green {
+    background-color: #6aec6a;
+}
+
+.card-red {
+    background-color: #d64e36;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.card-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card p {
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: #333;
+    flex: 1; /* Let paragraph take remaining space */
+    display: -webkit-box;
+    -webkit-line-clamp: 10; /* Limit to 4 lines of text */
+    line-clamp: 10; /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: auto; /* Push button to bottom of card */
+}
+
+.btn:hover {
+    background-color: #333;
+}
+/* Mission Section */
+.mission-section {
+    padding: 60px 0;
+    background-color: white;
+    text-align: center;
+}
+
+.mission-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color:#28a1da;
+}
+
+.mission-subtitle {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mission-text {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* Info Section */
+.info-section {
+    background: linear-gradient(135deg, #4682B4, #5F9EA0);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.info-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.plife {
+    background: linear-gradient(135deg, #4682B4, #5F9EA0);
+    color:white;
+    padding: 60px 0;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Parish life images: fixed square thumbnails */
+.parish-life-images {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.parish-life-images img {
+    width: 300px;
+    height: 300px;
+    object-fit:scale-down;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-menu {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-section h2 {
+        font-size: 2rem;
+    }
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 25px 20px 15px;
+    text-align: center;
+}
+
+.service-description {
+    font-size: 16px;
+    color: #666;
+    margin: 0 20px 20px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.service-button {
+    background-color: #2c7a9e;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+.service-button:hover {
+    background-color: #235f7d;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 640px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-title {
+        font-size: 22px;
+    }
+    
+    .service-description {
+        font-size: 15px;
+    }
+    
+    .image-container {
+        height: 200px;
+    }
+}
+
+/* Mobile tweak: remove large upward offset on very small screens */
+@media (max-width: 480px) {
+    .hero {
+        background-position: top center;
+        min-height: 250px;
+    }
+}
+
+.social-footer {
+    background-color: #2d3436;
+    padding: 60px 20px;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #4FC3F7;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    color: #9c1c92;
+    font-size: 32px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    color: #FF69B4;
+}
+
+.social-icon i {
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover i {
+    transform: rotate(5deg);
+}
+
+/* Individual icon adjustments */
+.social-icon .fa-facebook-f {
+    font-size: 36px;
+}
+
+.social-icon .fa-twitter {
+    font-size: 32px;
+}
+
+.social-icon .fa-envelope {
+    font-size: 30px;
+}
+
+.social-icon .fa-instagram {
+    font-size: 34px;
+}
+
+.social-icon .fa-youtube {
+    font-size: 34px;
+}
+
+.social-icon .fa-tiktok {
+    font-size: 32px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .social-icons {
+        gap: 25px;
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+        
+    }
+    
+    .social-icon .fa-facebook-f {
+        font-size: 30px;
+    }
+    
+    .social-icon .fa-twitter {
+        font-size: 26px;
+    }
+    
+    .social-icon .fa-envelope {
+        font-size: 24px;
+    }
+    
+    .social-icon .fa-instagram {
+        font-size: 28px;
+    }
+    
+    .social-icon .fa-youtube {
+        font-size: 28px;
+    }
+    
+    .social-icon .fa-tiktok {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons {
+        gap: 20px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+}
+                                                                        /* OUR PARISH! */
+.p-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 60px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.p-content h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.p-content p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.p-image-container {
+    position: sticky;
+    top: 20px;
+}
+
+.p-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+    .p-container {
+        grid-template-columns: 1fr;
+        padding: 40px;
+        gap: 40px;
+    }
+    
+    .p-image-container {
+        position: static;
+        order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .p-container {
+        padding: 30px 20px;
+    }
+    
+    .p-content h1 {
+        font-size: 24px;
+    }
+    
+    .p-content p {
+        font-size: 14px;
+    }
+}
+                                                                        /* CLERGY PAGE! */
+.clergy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Clergy Profile Section */
+.clergy-profile {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+}
+
+.clergy-profile.reverse {
+    flex-direction: row-reverse;
+}
+
+.profile-image {
+    flex: 0 0 45%;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.profile-content {
+    flex: 1;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.clergy-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.bio-text p {
+    margin-bottom: 15px;
+    text-align: justify;
+    color: #444;
+    font-size: 15px;
+}
+
+.bio-text p:last-child {
+    margin-bottom: 0;
+}
+
+.bio-text strong {
+    color: #222;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .clergy-profile,
+    .clergy-profile.reverse {
+        flex-direction: column;
+    }
+    
+    .profile-image {
+        flex: 0 0 100%;
+    }
+    
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .clergy-profile {
+        padding: 25px;
+        margin-bottom: 40px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .clergy-name {
+        font-size: 16px;
+    }
+    
+    .bio-text p {
+        font-size: 14px;
+    }
+    
+    .scroll-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+                                                                    /*PARISH COUNCIL PAGE*/
+.ParishCouncil-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        
+        }
+
+.team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 70%, transparent 100%);
+            color: white;
+            padding: 60px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .member-info {
+            transform: translateY(0);
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .member-position {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a8b3ff;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .member-name {
+                font-size: 1.2rem;
+            }
+
+            .member-position {
+                font-size: 0.85rem;
+            }
+        }
+
+.Council-bio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.main-title {
+    margin-top: 70px;
+    text-align: center;
+    color: #4a9fd8;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.bio-section {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 60px;
+}
+
+.bio-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.bio-item:last-child {
+    border-bottom: none;
+}
+
+.bio-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.bio-header:hover {
+    background-color: #f9f9f9;
+}
+
+.arrow {
+    color: #4a9fd8;
+    font-size: 0.9rem;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+    min-width: 15px;
+}
+
+.name {
+    color: #4a9fd8;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.bio-item.expanded .name {
+    color: #5cb85c;
+}
+
+.bio-item.expanded .arrow {
+    color: #5cb85c;
+}
+
+.bio-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 25px 0 55px;
+}
+
+.bio-item.expanded .bio-content {
+    max-height: 500px;
+    padding: 0 25px 20px 55px;
+}
+
+.bio-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.congratulations {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.congrats-title {
+    color: #4a9fd8;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.congrats-text {
+    color: #333;
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+                                                                                /*PARISH REG PAGE*/
+.hero-section {
+            background-color: #f8f8f8;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 1.1em;
+            font-weight: normal;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            color: #2c2c2c;
+        }
+
+        .mission-text {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .broken-hearted {
+            font-weight: bold;
+        }
+
+        .hands-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23999" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .registration-section {
+            background-color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .registration-section h2 {
+            font-size: 1.8em;
+            color: #5a5a5a;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .registration-section p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+
+        .btn-register {
+            background-color: #4a7c7e;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: #3a6668;
+        }
+
+        .bottom-images {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px 20px;
+            background-color: #f8f8f8;
+            flex-wrap: wrap;
+        }
+
+        .bottom-image {
+            width: 300px;
+            height: 200px;
+            background-color: #ddd;
+            border-radius: 8px;
+        }
+    
+    .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .left-column {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .left-column h2 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .left-column h3 {
+            font-size: 1.3em;
+            font-style: italic;
+            margin: 30px 0 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .text-block {
+            margin-bottom: 25px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .text-block p {
+            margin-bottom: 15px;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .video-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .video-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><rect fill="%23333" width="800" height="450"/><text x="50%" y="50%" fill="white" font-size="24" text-anchor="middle">RCIA Video Placeholder</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid white;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+                                                                            /* CONTACT PAGE! */
+    /* Get In Touch Section */
+        .contact-section {
+            background-color: #fff;
+            padding: 80px 20px;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-section h1 {
+            color: #942753;
+            font-size: 3em;
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .contact-column h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .contact-column p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .contact-column a {
+            color: #1a5490;
+            text-decoration: none;
+        }
+
+        .contact-column a:hover {
+            text-decoration: underline;
+        }
+
+        .phone-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Call to Action Banner */
+        .cta-banner {
+            background-color: #942753;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cta-content h2 {
+            color: white;
+            font-size: 2.2em;
+            font-weight: 600;
+        }
+
+        .call-button {
+            background-color: #4a4a4a;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+        .call-button:hover {
+            background-color: #3a3a3a;
+        }
+
+        .call-button::before {
+            content: '☎';
+            font-size: 1.2em;
+        }
+
+        /* Mass Times Section */
+        .mass-times-section {
+            background-color: #f8f8f8;
+            padding: 60px 20px;
+        }
+
+        .mass-times-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .mass-times-left h2 {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .mass-schedule {
+            margin-bottom: 30px;
+        }
+
+        .mass-time {
+            color: #c94a1f;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .confession-time {
+            color: #333;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .mass-times-right h3 {
+            color: #c94a1f;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .mass-times-right p {
+            line-height: 1.8;
+            color: #555;
+        }
+                                                                        /* Father’s Message PAGE! */
+    .fathercontent-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+
+        .greeting {
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2c2c2c;
+            text-transform: uppercase;
+        }
+
+        .message-text {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            text-align: justify;
+            color: #444;
+        }
+
+        .closing {
+            margin-top: 30px;
+            font-style: italic;
+            color: #444;
+        }
+
+        .mission-statement-section {
+            background-color: #f8f8f8;
+            padding: 60px 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-statement-section h2 {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: normal;
+            margin-bottom: 30px;
+            color: #2c2c2c;
+        }
+
+        .mission-statement-section h2 strong {
+            font-weight: 600;
+        }
+
+        .mission-description {
+            text-align: justify;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .broken-hearted {
+            font-weight: bold;
+        }
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .congrats-title {
+        font-size: 1.8rem;
+    }
+    
+    .bio-header {
+        padding: 15px 20px;
+    }
+    
+    .bio-content {
+        padding: 0 20px 0 50px;
+    }
+    
+    .bio-item.expanded .bio-content {
+        padding: 0 20px 15px 50px;
+    }
+    
+    .name {
+        font-size: 1rem;
+    }
+
+    
+
+    .mass-times-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cta-content {
+                flex-direction: column;
+            }
+
+            .cta-content h2 {
+                font-size: 1.6em;
+            }
+
+            .contact-section h1 {
+                font-size: 2em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+}
+
+/* Mobile / small-screen overrides: ensure all pages render and behave well on phones */
+/* These rules are intentionally specific and come after earlier definitions to act as safe fallbacks. */
+
+img, picture, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Medium small devices */
+@media (max-width: 900px) {
+    .cards-grid, .services-grid { grid-template-columns: 1fr !important; }
+    .parish-life-images { flex-direction: column; gap: 12px; }
+    .parish-life-images img { width: 100%; height: auto; }
+    .container, .footer-container, .p-container { padding-left: 12px; padding-right: 12px; }
+}
+
+/* Typical tablet / large phone */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; align-items: stretch; gap: 8px; }
+    .nav-menu { display: flex; flex-direction: column; gap: 8px; margin-left: 0; padding: 10px; }
+    .nav-menu li { width: 100%; }
+    .dropbtn { width: 100%; text-align: left; padding: 10px 12px; }
+    .dropdown-menu { position: static; box-shadow: none; background: transparent; padding: 0; }
+
+    .logo h1 { font-size: 1.8rem; padding-left: 12px; }
+
+    .cards-grid { grid-template-columns: 1fr !important; gap: 18px; }
+    .card { padding: 18px; min-height: auto; }
+
+    .services-grid { grid-template-columns: 1fr !important; gap: 18px; }
+    .service-card { padding-bottom: 18px; }
+
+    .team-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .team-member { aspect-ratio: auto; height: 260px; }
+
+    .clergy-profile, .clergy-profile.reverse { flex-direction: column; }
+    .profile-image { flex: 0 0 100%; }
+
+    .p-container, .mass-times-container, .content-wrapper { grid-template-columns: 1fr; padding: 20px; gap: 20px; }
+
+    .contact-grid { grid-template-columns: 1fr; }
+
+    .scroll-top { bottom: 18px; right: 18px; width: 44px; height: 44px; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .logo h1 { font-size: 1.4rem; padding-left: 8px; }
+    .nav-menu { gap: 10px; padding: 8px; }
+    .nav-menu a, .dropbtn { font-size: 0.95rem; }
+
+    .card-icon { width: 60px; height: 60px; }
+    .card { padding: 14px; }
+
+    .parish-life-images img { width: 100%; height: auto; }
+
+    .member-info { padding: 18px; }
+    .member-name { font-size: 1.1rem; }
+
+    .footer-title { font-size: 20px; }
+    .social-icon { width: 40px; height: 40px; font-size: 20px; }
+
+    .bio-content { padding: 0 12px 0 36px; }
+}
+
+/* Touch targets: make buttons and links easier to tap */
+button, .dropbtn, .nav-menu a, .service-button, .btn, .call-button { touch-action: manipulation; }

@@ -1,0 +1,144 @@
+CSS selector usage mapping — precise per-page mapping
+
+Pages scanned:
+- BecomeParish.html
+- Clergy.html
+- ContactUs.html
+- home page.html
+- MessageFather.html
+- OurParish.html
+- ParishCouncil.html
+- ParishReg.html
+
+Notes:
+- Mapping lists class selectors found in `Parish.css` and the pages where that class appears.
+- If a CSS selector exists but does not appear in any HTML file, it is listed as "(unused in pages)".
+- Class name matching is exact: HTML class values are case-sensitive for CSS selectors in XHTML and practically case-sensitive for reliable results; there is one naming mismatch called out below.
+
+---
+Shared / header & nav (appear on nearly all pages):
+- .hero: BecomeParish, Clergy, ContactUs, home page, MessageFather, OurParish, ParishCouncil, ParishReg
+- .navbar: all pages above
+- .logo: all pages above
+- .nav-menu: all pages above
+- .dropdown: all pages above
+- .dropbtn: all pages above
+- .dropdown-menu: all pages above
+- .nav-menu li: all pages above (implicit via class usage)
+
+Footer / social (shared):
+- .social-footer: BecomeParish, Clergy, ContactUs, home page, MessageFather, OurParish, ParishCouncil, ParishReg
+- .footer-container: same (all pages)
+- .footer-title: same
+- .social-icons: same
+- .social-icon: same
+- .social-icon .fa-*: icons appear (Font Awesome classes inside <i>), but these are provided by FA library, not in Parish.css
+
+Site utilities:
+- .scroll-top: Clergy, ContactUs, MessageFather, OurParish, ParishCouncil, ParishReg, BecomeParish (present on many pages; NOT present on home page)
+- .btn: (defined in CSS) — not found as class in any HTML page scanned (unused)
+
+Home / landing selectors (home page and others):
+- .cards-section: home page
+- .cards-grid: home page
+- .card, .card-blue, .card-orange, .card-green, .card-red, .card-icon: home page
+- .mission-section: home page, OurParish
+- .mission-subtitle: home page, OurParish
+- .mission-text: home page, ParishReg, OurParish
+- .info-section: home page
+- .plife: home page
+- .parish-life-images: home page
+
+Services / cards (home page):
+- .services-grid: home page
+- .service-card: home page
+- .image-container: home page
+- .service-title: home page
+- .service-description: home page
+- .service-button: home page
+
+Content pages:
+- .p-container: OurParish
+- .p-content: OurParish
+- .p-image-container: OurParish
+
+Clergy page selectors (Clergy.html):
+- .clergy-container: Clergy
+- .clergy-profile: Clergy
+- .clergy-profile.reverse: Clergy (used via class="clergy-profile reverse")
+- .profile-image: Clergy
+- .profile-content: Clergy
+- .section-title: Clergy, MessageFather (both pages use this class)
+- .clergy-name: Clergy
+- .bio-text: Clergy
+
+Parish Council selectors (ParishCouncil.html):
+- .ParishCouncil-container: ParishCouncil
+- .team-grid: ParishCouncil
+- .team-member: ParishCouncil
+- .member-info: ParishCouncil
+- .member-name: ParishCouncil
+- .member-position: ParishCouncil
+- .bio-section: ParishCouncil
+- .bio-item: ParishCouncil
+- .bio-header: ParishCouncil
+- .arrow: ParishCouncil
+- .name: ParishCouncil
+- .bio-content: ParishCouncil
+- .bio-item.expanded: ParishCouncil (by class="bio-item expanded")
+- .congratulations, .congrats-title, .congrats-text: ParishCouncil
+
+Note: class name mismatch found — HTML uses `class="Council-Bio-container"` (capital B) while CSS declares `.Council-bio-container` (lowercase b). Because CSS class selectors are case-sensitive in XML/XHTML and some environments, this is likely a bug: the CSS rule will not match the HTML element. Recommend renaming either HTML or CSS to match (preferred: change HTML to `Council-bio-container` or change CSS to `.Council-Bio-container`).
+
+Registration page selectors (ParishReg.html):
+- .hero-section: ParishReg
+- .mission-text: ParishReg
+- .hands-image: ParishReg
+- .registration-section: ParishReg
+- .btn-register: ParishReg
+- .bottom-images, .bottom-image: ParishReg
+- .broken-hearted (span) appears in ParishReg content (used inside paragraph)
+
+Become a Catholic page (BecomeParish.html):
+- .content-wrapper: BecomeParish
+- .left-column, .right-column: BecomeParish
+- .text-block: BecomeParish
+- .video-section, .video-container, .video-placeholder, .play-button: BecomeParish
+- .responsive-iframe (iframe class on embedded iframe) — this is inline style in page but not in Parish.css
+
+MessageFather page selectors (MessageFather.html):
+- .fathercontent-section: MessageFather
+- .section-title: MessageFather (also used in Clergy)
+- .greeting: MessageFather
+- .message-text: MessageFather
+- .closing: MessageFather
+- .mission-statement-section, .mission-container, .mission-description: MessageFather
+- .broken-hearted: MessageFather (span)
+
+Contact page selectors (ContactUs.html):
+- .contact-section: ContactUs
+- .contact-container: ContactUs
+- .contact-grid: ContactUs
+- .contact-column: ContactUs
+- .phone-label: ContactUs
+- .zapper-block: ContactUs (inline class present)
+- .cta-banner, .cta-content, .call-button: ContactUs
+- .mass-times-section, .mass-times-container, .mass-times-left, .mass-schedule, .mass-time, .confession-time, .mass-times-right: ContactUs
+
+Other selectors present in CSS but not used in any HTML scanned (unused):
+- .btn (no HTML pages use class="btn")
+- .card p vendor-specific line-clamp properties are part of card but if card isn't used they are unused; however card is used on home page so not entirely unused.
+- Any other very small helper classes may be unused; search results above cover the major ones.
+
+---
+Summary:
+- Shared across all pages: header/nav (.hero, .navbar, .logo, .nav-menu, .dropdown, .dropbtn, .dropdown-menu) and footer (.social-footer, .footer-container, .footer-title, .social-icons, .social-icon).
+- Page-specific groups: Clergy (.clergy-*), ParishCouncil (.team-*, .bio-*), OurParish (.p-*), BecomeParish (.content-wrapper, .video-*), ParishReg (.registration-section, .btn-register), Contact (.contact-*, .mass-times-*, .cta-*)
+- Action items: fix class name capitalization mismatch: `Council-Bio-container` (HTML) vs `.Council-bio-container` (CSS).
+
+If you want, I can:
+- Split the CSS into `shared.css` + per-page CSS files and update each HTML to only load necessary files (saves bytes and improves clarity). I can implement that now.
+- Or I can fix the `Council-Bio-container` mismatch in the HTML or CSS.
+
+---
+End of mapping.
